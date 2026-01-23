@@ -1,51 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Análisis Lingüístico – El Peruano</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    h1, h2 {
+      color: #1a1a1a;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 1em;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .note {
+      background: #fff3cd;
+      padding: 10px;
+      border-left: 5px solid #ffc107;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+
+<body>
+
 <h1>Análisis Lingüístico de Artículos de <em>El Peruano</em></h1>
 
 <p>
-  Este proyecto presenta un análisis lingüístico y semántico de artículos publicados
-  por el diario oficial <strong>El Peruano</strong>, a partir de técnicas de
-  <strong>web scraping dinámico en Python</strong> y procesamiento de texto.
+Este proyecto presenta un análisis lingüístico y semántico de artículos publicados
+por el diario oficial <strong>El Peruano</strong>, utilizando técnicas de
+<strong>web scraping dinámico en Python</strong> y procesamiento de texto.
 </p>
 
 <h2>📌 Metodología</h2>
 
 <ul>
-  <li>Extracción dinámica de artículos desde la web de <em>El Peruano</em></li>
-  <li>Construcción de dataset estructurado (CSV)</li>
-  <li>Procesamiento lingüístico: tokenización, métricas léxicas y polaridad semántica</li>
-  <li>Sistematización de resultados en archivos reutilizables</li>
+  <li>Scraping dinámico de artículos periodísticos</li>
+  <li>Estructuración de datos en formato CSV</li>
+  <li>Análisis léxico y frecuencias de palabras</li>
+  <li>Documentación de resultados en formatos abiertos</li>
 </ul>
 
-<h2>📂 Descarga de datos</h2>
+<h2>📂 Descarga de datos (CSV)</h2>
 
 <ul>
   <li>
-    <a href="https://github.com/Savsuuwuwuwuwu/Analisis_articulos_El_Peruano/raw/main/data/articulos_elperuano.csv">
+    <a href="data/articulos_elperuano.csv" download>
       Descargar: articulos_elperuano.csv
     </a>
     <br>
-    <small>Dataset principal con 39 artículos analizados</small>
+    <small>Dataset principal con los artículos analizados</small>
   </li>
 
   <li>
-    <a href="https://github.com/Savsuuwuwuwuwu/Analisis_articulos_El_Peruano/raw/main/data/top_palabras_titulos.csv">
+    <a href="data/top_palabras_titulos.csv" download>
       Descargar: top_palabras_titulos.csv
     </a>
     <br>
-    <small>Frecuencia de las palabras más utilizadas en los títulos</small>
+    <small>Frecuencia de palabras más usadas en los títulos</small>
   </li>
 </ul>
 
 <div class="note">
-  ⚠️ <strong>Nota:</strong> algunos navegadores muestran los archivos CSV como texto.
-  Para descargarlos correctamente: clic derecho → <b>“Guardar enlace como…”</b>
+  Nota: si el navegador muestra el archivo, usar clic derecho → “Guardar enlace como…”
 </div>
+
+<h2>📊 Vista previa del dataset</h2>
+
+<table id="tabla-articulos">
+  <thead></thead>
+  <tbody></tbody>
+</table>
 
 <h2>🧠 Resultados del análisis</h2>
 
 <p>
-  El resumen completo del análisis lingüístico —incluyendo densidad léxica,
-  polaridad semántica y conclusiones por sección— se encuentra documentado en el
-  siguiente archivo:
+El análisis lingüístico completo —incluyendo densidad léxica y conclusiones—
+se encuentra documentado en el siguiente informe:
 </p>
 
 <ul>
@@ -57,6 +107,40 @@
 </ul>
 
 <p>
-  Este proyecto sigue buenas prácticas de periodismo de datos y reproducibilidad,
-  separando claramente <em>datos</em>, <em>análisis</em> y <em>documentación</em>.
+Este proyecto sigue buenas prácticas de <strong>periodismo de datos</strong>,
+separando datos, análisis y visualización.
 </p>
+
+<!-- SCRIPT PARA LEER EL CSV -->
+<script>
+fetch("data/articulos_elperuano.csv")
+  .then(response => response.text())
+  .then(csv => {
+    const rows = csv.trim().split("\n").map(row => row.split(","));
+    const thead = document.querySelector("#tabla-articulos thead");
+    const tbody = document.querySelector("#tabla-articulos tbody");
+
+    // Cabecera
+    const headerRow = document.createElement("tr");
+    rows[0].forEach(col => {
+      const th = document.createElement("th");
+      th.textContent = col;
+      headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+
+    // Primeras 10 filas
+    rows.slice(1, 11).forEach(row => {
+      const tr = document.createElement("tr");
+      row.forEach(cell => {
+        const td = document.createElement("td");
+        td.textContent = cell;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  });
+</script>
+
+</body>
+</html>
