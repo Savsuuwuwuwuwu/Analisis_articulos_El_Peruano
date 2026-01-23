@@ -1,11 +1,547 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Resumen del Análisis Lingüístico</title>
+  <title>Resumen del Análisis Lingüístico - El Peruano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5ede1 0%, #ede4d9 100%);
+      color: #3a3a3a;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 30px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 80px;
+      padding-bottom: 40px;
+      border-bottom: 2px solid #a0522d;
+    }
+
+    h1 {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 3rem;
+      color: #8b4513;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 1.2rem;
+      color: #a0522d;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    h2 {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 2rem;
+      color: #8b4513;
+      margin-top: 50px;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #cd5c5c;
+    }
+
+    h3 {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 1.5rem;
+      color: #a0522d;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    h4 {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 1.2rem;
+      color: #8b4513;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+      color: #4a4a4a;
+    }
+
+    ul, ol {
+      margin-left: 30px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+      color: #4a4a4a;
+    }
+
+    .card {
+      background: white;
+      padding: 35px;
+      margin: 30px 0;
+      border-radius: 12px;
+      border-left: 6px solid #cd5c5c;
+      box-shadow: 0 4px 15px rgba(139, 69, 19, 0.08);
+    }
+
+    .stat-box {
+      background: linear-gradient(135deg, #cd5c5c 0%, #a0522d 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin: 20px 0;
+      box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+    }
+
+    .stat-box h4 {
+      color: white;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .stat-box ul {
+      margin-left: 20px;
+    }
+
+    .stat-box li {
+      color: white;
+      font-size: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      background: white;
+      box-shadow: 0 2px 8px rgba(139, 69, 19, 0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th {
+      background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
+      color: white;
+      padding: 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #ede4d9;
+      color: #4a4a4a;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background: #faf8f5;
+    }
+
+    tr:hover {
+      background: #f5ede1;
+    }
+
+    .highlight-box {
+      background: #fff9f5;
+      padding: 20px;
+      border-left: 5px solid #cd5c5c;
+      border-radius: 6px;
+      margin: 25px 0;
+    }
+
+    .code-block {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 10px 20px;
+      background: #a0522d;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: #8b4513;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: #8b4513;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-right: 10px;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #cd5c5c;
+      margin: 40px 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 80px;
+      padding-top: 30px;
+      border-top: 2px solid #a0522d;
+      color: #8b4513;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 40px 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      table {
+        font-size: 0.85rem;
+      }
+
+      th, td {
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Resumen del análisis lingüístico</h1>
-  <p>...</p>
+  <div class="container">
+    
+    <a href="index.html" class="back-link">← Volver al inicio</a>
+
+    <header>
+      <h1>📊 RESUMEN DEL ANÁLISIS LINGÜÍSTICO</h1>
+      <p class="subtitle">Diario Oficial El Peruano</p>
+    </header>
+
+    <!-- RESULTADOS PRINCIPALES -->
+    <section>
+      <h2>📊 RESULTADOS PRINCIPALES</h2>
+
+      <div class="card">
+        <h3>1️⃣ MÉTRICAS BÁSICAS</h3>
+        <ul>
+          <li><strong>39 artículos</strong> analizados del 21/01/2026</li>
+          <li><strong>Promedio títulos:</strong> 88.2 caracteres</li>
+          <li><strong>Promedio resúmenes:</strong> 197.2 caracteres</li>
+          <li><strong>Secciones:</strong> 12 (Economía, Política, Derecho, Actualidad, etc.)</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div class="card">
+        <h3>2️⃣ DENSIDAD LÉXICA (Análisis Técnico-Divulgativo)</h3>
+        <div class="stat-box">
+          <h4>Resultado: TÉCNICO (0.996)</h4>
+        </div>
+
+        <ul>
+          <li>Densidad promedio: <strong>0.996</strong> (casi 1.0 = vocabulario muy específico)</li>
+          <li><strong>Interpretación:</strong> El Peruano usa lenguaje altamente técnico y especializado</li>
+          <li>Vocabulario repetitivo pero preciso</li>
+          <li>Muy pocas palabras se repiten dentro de un mismo título</li>
+        </ul>
+
+        <h4>Por sección:</h4>
+        <ul>
+          <li>Todas las secciones tienen densidad = 1.0 (TÉCNICO)</li>
+          <li>Excepto "Gerencia y Liderazgo" con 0.923 (levemente más divulgativo)</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div class="card">
+        <h3>3️⃣ POLARIDAD SEMÁNTICA (Sentimiento Institucional)</h3>
+        <h4>Distribución de Sentimientos:</h4>
+
+        <div class="code-block">
+Neutral:   28 artículos (71.8%) 😐 Tono informativo oficial
+Positivo:   9 artículos (23.1%) 😊 Logros y avances
+Negativo:   2 artículos ( 5.1%) 😞 Alertas y advertencias
+        </div>
+
+        <h4>Por sección más relevantes:</h4>
+        <ul>
+          <li><strong>Economía:</strong> 4 Positivo, 2 Neutral (énfasis en logros)</li>
+          <li><strong>Política:</strong> 2 Positivo, 5 Neutral (balance informativo)</li>
+          <li><strong>Derecho:</strong> 2 Positivo, 3 Neutral, 1 Negativo</li>
+          <li><strong>País:</strong> 6 Neutral, 1 Negativo (informativo)</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div class="card">
+        <h3>4️⃣ LÉXICO DOMINANTE POR SECCIÓN</h3>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+          
+          <div class="highlight-box">
+            <h4><span class="section-badge">Economía</span></h4>
+            <p>perú, refuerza, deslumbra, fitur, 2026</p>
+          </div>
+
+          <div class="highlight-box">
+            <h4><span class="section-badge">Política</span></h4>
+            <p>elecciones, 2026, onpe, aprueba, plan</p>
+          </div>
+
+          <div class="highlight-box">
+            <h4><span class="section-badge">Derecho</span></h4>
+            <p>derecho, negociación, colectiva, constitucional, entidades</p>
+          </div>
+
+          <div class="highlight-box">
+            <h4><span class="section-badge">Educación</span></h4>
+            <p>educación, matrícula, digital, 2026, ministerio</p>
+          </div>
+
+          <div class="highlight-box">
+            <h4><span class="section-badge">Mundo</span></h4>
+            <p>trump, exige, davos, negociaciones, inmediatas</p>
+          </div>
+
+          <div class="highlight-box">
+            <h4><span class="section-badge">Actualidad</span></h4>
+            <p>ola, calor, osinergmin, promueve, uso</p>
+          </div>
+
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="card">
+        <h3>5️⃣ TOP 20 PALABRAS EN TÍTULOS</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Palabra</th>
+              <th>Frecuencia</th>
+              <th style="width: 20px;"></th>
+              <th>Rank</th>
+              <th>Palabra</th>
+              <th>Frecuencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><strong>2026</strong></td>
+              <td>8x</td>
+              <td></td>
+              <td>11</td>
+              <td>mundial</td>
+              <td>3x</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><strong>más</strong></td>
+              <td>7x</td>
+              <td></td>
+              <td>12</td>
+              <td>ministerio</td>
+              <td>3x</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><strong>que</strong></td>
+              <td>7x</td>
+              <td></td>
+              <td>13</td>
+              <td>derecho</td>
+              <td>3x</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><strong>perú</strong></td>
+              <td>5x</td>
+              <td></td>
+              <td>14</td>
+              <td>educación</td>
+              <td>3x</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><strong>mil</strong></td>
+              <td>4x</td>
+              <td></td>
+              <td>15</td>
+              <td>ofrece</td>
+              <td>3x</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><strong>conoce</strong></td>
+              <td>4x</td>
+              <td></td>
+              <td>16</td>
+              <td>fueron</td>
+              <td>3x</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><strong>digital</strong></td>
+              <td>4x</td>
+              <td></td>
+              <td>17</td>
+              <td>nuevo</td>
+              <td>3x</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><strong>fitur</strong></td>
+              <td>3x</td>
+              <td></td>
+              <td>18</td>
+              <td>deslumbra</td>
+              <td>2x</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><strong>refuerza</strong></td>
+              <td>3x</td>
+              <td></td>
+              <td>19</td>
+              <td>presencia</td>
+              <td>2x</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><strong>clase</strong></td>
+              <td>3x</td>
+              <td></td>
+              <td>20</td>
+              <td>como</td>
+              <td>2x</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CONCLUSIONES -->
+    <section>
+      <h2>💡 CONCLUSIONES</h2>
+
+      <div class="card">
+        <h3>Características del Lenguaje de El Peruano:</h3>
+
+        <div style="margin-top: 25px;">
+          <h4>1. TÉCNICO Y ESPECIALIZADO</h4>
+          <ul>
+            <li>Densidad léxica de 0.996 indica alto nivel técnico</li>
+            <li>Vocabulario muy específico por sector (legal, económico, educativo)</li>
+          </ul>
+
+          <h4>2. FUERTEMENTE INSTITUCIONAL</h4>
+          <ul>
+            <li>71.8% de artículos con tono neutral</li>
+            <li>Comunicados oficiales sin opinión editorial explícita</li>
+          </ul>
+
+          <h4>3. POSITIVO EN LOGROS</h4>
+          <ul>
+            <li>23.1% positivos (énfasis en avances del gobierno)</li>
+            <li>Pocas noticias negativas (5.1%)</li>
+          </ul>
+
+          <h4>4. ENFOQUE EN 2026</h4>
+          <ul>
+            <li>Año electoral como tema predominante</li>
+            <li>Énfasis en nuevos programas y políticas</li>
+          </ul>
+
+          <h4>5. MULTISECTORIAL</h4>
+          <ul>
+            <li>12 secciones diferentes</li>
+            <li>Cubertura equilibrada de temas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHIVOS GENERADOS -->
+    <section>
+      <h2>📁 ARCHIVOS GENERADOS</h2>
+
+      <div class="card">
+        <ol>
+          <li>
+            <strong>articulos_elperuano_analizado.csv</strong>
+            <ul>
+              <li>Columnas originales + len_titulo, len_resumen, densidad_lexica, sentimiento</li>
+            </ul>
+          </li>
+          <li>
+            <strong>top_palabras_titulos.csv</strong>
+            <ul>
+              <li>Top 20 palabras más frecuentes</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        <strong>Análisis realizado:</strong> 21/01/2026<br>
+        <strong>Método:</strong> Análisis de sentimiento manual + tokenización + métricas lingüísticas
+      </p>
+      <br>
+      <a href="index.html" class="back-link">← Volver al inicio</a>
+    </footer>
+
+  </div>
 </body>
 </html>
